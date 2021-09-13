@@ -16,3 +16,5 @@ jobs:
 
           echo "## Model metrics" > report.md
           cat results.txt >> report.md
+
+          cml-send-comment report.md
