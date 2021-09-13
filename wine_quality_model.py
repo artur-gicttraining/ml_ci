@@ -26,15 +26,15 @@ model.fit(X_train, y_train)
 training_acc = model.score(X_train, y_train) * 100
 test_acc = model.score(X_test, y_test) * 100
 
+# Output the results in a .txt file
+with open("results.txt", "w") as f:
+    f.write(f"Training accuracy: {training_acc}\n")
+    f.write(f"Test accuracy: {test_acc}\n")
+
 # Now print to file
 import json
 with open("results.json", 'w') as f:
-        json.dump({ "Training accuracy": training_acc, "Test accuracy": test_acc}, f)
-
-# Output the results in a .txt file
-#with open("results.txt", "w") as f:
-#    f.write(f"Training accuracy: {training_acc}\n")
-#    f.write(f"Test accuracy: {test_acc}\n")
+    json.dump({ "Training accuracy": training_acc, "Test accuracy": test_acc}, f)
 
 # Plot a confusion matrix
 from sklearn.metrics import plot_confusion_matrix
