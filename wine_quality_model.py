@@ -19,17 +19,22 @@ X_test = scaler.transform(X_test)
 
 # Train a Decision Tree classifier
 from sklearn.tree import DecisionTreeClassifier
-model = DecisionTreeClassifier()
+model = DecisionTreeClassifier(max_depth=2)
 model.fit(X_train, y_train)
 
 # Compute the training and test accuracy
 training_acc = model.score(X_train, y_train) * 100
 test_acc = model.score(X_test, y_test) * 100
 
+# Now print to file
+import json
+with open("results.json", 'w') as f:
+        json.dump({ "Training accuracy": training_acc, "Test accuracy": test_acc}, f)
+
 # Output the results in a .txt file
-with open("results.txt", "w") as f:
-    f.write(f"Training accuracy: {training_acc}\n")
-    f.write(f"Test accuracy: {test_acc}\n")
+#with open("results.txt", "w") as f:
+#    f.write(f"Training accuracy: {training_acc}\n")
+#    f.write(f"Test accuracy: {test_acc}\n")
 
 # Plot a confusion matrix
 from sklearn.metrics import plot_confusion_matrix

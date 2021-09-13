@@ -15,7 +15,7 @@ jobs:
           python wine_quality_model.py
 
           echo "## Model metrics" > report.md
-          cat results.txt >> report.md
+          dvc results diff --show-md master > report.md
 
           echo "## Confusion Matrix" >> report.md
           cml-publish confusion_matrix.png --md >> report.md
