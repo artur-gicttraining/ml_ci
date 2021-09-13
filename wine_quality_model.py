@@ -19,7 +19,7 @@ X_test = scaler.transform(X_test)
 
 # Train a Decision Tree classifier
 from sklearn.tree import DecisionTreeClassifier
-model = DecisionTreeClassifier()
+model = DecisionTreeClassifier(max_depth=2)
 model.fit(X_train, y_train)
 
 # Compute the training and test accuracy
