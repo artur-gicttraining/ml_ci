@@ -15,4 +15,4 @@ jobs:
           python wine_quality_model.py
 
           echo "## Model metrics" > report.md
-          cat metrics.txt >> report.md
+          cat results.txt >> report.md
