@@ -5,7 +5,7 @@ wines.columns = wines.columns.str.replace(" ", "_")
 
 # Split dataset into features and target and intro training and test sets
 from sklearn.model_selection import train_test_split
-X = wines.loc[:, ['fixed_acidity', 'volatile_acidity', 'citric_acid', 'alcohol']]
+X = wines.loc[:, ['fixed_acidity', 'volatile_acidity', 'citric_acid', 'residual_sugar', 'alcohol']]
 y = wines.loc[:, 'quality']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -18,8 +18,8 @@ X_train = scaler.transform(X_train)
 X_test = scaler.transform(X_test)
 
 # Train a Decision Tree classifier
-from sklearn.tree import DecisionTreeClassifier
-model = DecisionTreeClassifier(max_depth=2)
+from sklearn.ensemble import RandomForestClassifier
+model = RandomForestClassifier(n_estimators=200, max_depth=4)
 model.fit(X_train, y_train)
 
 # Compute the training and test accuracy
