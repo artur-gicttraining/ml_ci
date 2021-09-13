@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python wine_quality_model.py
+    deps:
+    - path: wine_quality_model.py
+      md5: 6dd76430f87ed8d0cb7a4a2a4c376671
+      size: 1692
+    outs:
+    - path: confusion_matrix.png
+      md5: b1ef56ed9573668152b014d19376217b
+      size: 19445
+    - path: results.json
+      md5: 95f28c4bbe4faf0e0f60a5d948f2a906
+      size: 48
+    - path: results.txt
+      md5: a850bc878e1d5f8d9c4b37dc7fe3d666
+      size: 62

@@ -31,6 +31,10 @@ with open("results.txt", "w") as f:
     f.write(f"Training accuracy: {training_acc}\n")
     f.write(f"Test accuracy: {test_acc}\n")
 
+import json
+with open("results.json", 'w') as f:
+        json.dump({ "Training": training_acc, "Test": test_acc}, f)
+
 # Plot a confusion matrix
 from sklearn.metrics import plot_confusion_matrix
 import matplotlib.pyplot as plt  
